@@ -175,6 +175,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,8 +186,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-cosmo.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-luu.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -343,6 +346,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\ProductManager\Index.cshtml" />
+    <Content Include="Views\ProductManager\Create.cshtml" />
+    <Content Include="Views\ProductManager\Edit.cshtml" />
+    <Content Include="Views\ProductManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,6 +364,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineWebStore.Core\OnlineWebStore.Core.csproj">
+      <Project>{863b575f-6f69-4d02-b3bf-60206369cb34}</Project>
+      <Name>OnlineWebStore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineWebStore.DataAccess.InMemory\OnlineWebStore.DataAccess.InMemory.csproj">
+      <Project>{fc5636de-c3cb-4feb-bccd-6085900327cf}</Project>
+      <Name>OnlineWebStore.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineWebStore.DataAccess.SQL\OnlineWebStore.DataAccess.SQL.csproj">
+      <Project>{6727735a-9397-4867-a15b-99fdda40b06a}</Project>
+      <Name>OnlineWebStore.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineWebStore.Services\OnlineWebStore.Services.csproj">
+      <Project>{d8f56c58-02ca-4f39-8a7a-1074741b8e19}</Project>
+      <Name>OnlineWebStore.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

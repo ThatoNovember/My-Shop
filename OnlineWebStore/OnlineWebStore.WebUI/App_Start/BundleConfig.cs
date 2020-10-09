@@ -23,7 +23,7 @@ namespace OnlineWebStore.WebUI
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-luu.css",
                       "~/Content/site.css"));
         }
     }
