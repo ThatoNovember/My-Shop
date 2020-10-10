@@ -4,11 +4,12 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineWebStore.Core.Contracts;
 using OnlineWebStore.Core.Models;
 
 namespace OnlineWebStore.DataAccess.InMemory
 {
-    public class InMemoryRepository<T> where T : BaseEntity
+    public class InMemoryRepository<T> : IRepository<T> where T : BaseEntity
     {
         ObjectCache cache = MemoryCache.Default;
         List<T> items;
@@ -18,7 +19,7 @@ namespace OnlineWebStore.DataAccess.InMemory
         {
             className = typeof(T).Name;
             items = cache[className] as List<T>;
-            if(items == null)
+            if (items == null)
             {
                 items = new List<T>();
             }
@@ -35,7 +36,7 @@ namespace OnlineWebStore.DataAccess.InMemory
         public void Update(T t)
         {
             T tToUpdate = items.Find(i => i.Id == t.Id);
-            if(tToUpdate != null)
+            if (tToUpdate != null)
             {
                 tToUpdate = t;
             }
@@ -47,7 +48,7 @@ namespace OnlineWebStore.DataAccess.InMemory
         public T Find(string Id)
         {
             T t = items.Find(i => i.Id == Id);
-            if(t != null)
+            if (t != null)
             {
                 return t;
             }
@@ -60,7 +61,7 @@ namespace OnlineWebStore.DataAccess.InMemory
         {
             return items.AsQueryable();
         }
-        public void Delete (string Id)
+        public void Delete(string Id)
         {
             T tToDelete = items.Find(i => i.Id == Id);
 
