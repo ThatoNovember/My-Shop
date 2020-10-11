@@ -45,13 +45,16 @@ namespace OnlineWebStore.WebUI.Controllers
             }
             else
             {
-                if(file != null)
+
+                if (file != null)
                 {
                     product.Image = product.Id + Path.GetExtension(file.FileName);
-                    file.SaveAs(Server.MapPath("//Content/ProductImages") + product.Image);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
                 }
+
                 context.Insert(product);
                 context.Commit();
+
                 return RedirectToAction("Index");
             }
         }
